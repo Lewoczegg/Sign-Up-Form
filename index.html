@@ -19,32 +19,38 @@
         <main>
             <p>This is not real online service! Sign up now to get started.</p>
             <h2>Sign up</h2>
-            <form>
+            <form id="myForm">
                 <div class="input-row">
                     <label for="first-name" class="input-label">FIRST NAME</label>
                     <input type="text" id="first-name" name="first-name" required>
+                    <p class="error-message">Please enter your first name.</p>
                 </div>
                 <div class="input-row">
                     <label for="last-name" class="input-label">LAST NAME</label>
                     <input type="text" id="last-name" name="last-name" required>
+                    <p class="error-message">Please enter your last name.</p>
                 </div>
                 <div class="input-row">
                     <label for="email" class="input-label">EMAIL</label>
                     <input type="email" name="email" id="email" required>
+                    <p class="error-message">Please enter a valid email address.</p>
                 </div>
                 <div class="input-row">
                     <label for="phone" class="input-label">PHONE NUMBER</label>
                     <input type="tel" name="phone" id="phone" required>
+                    <p class="error-message">Please enter a valid phone number.</p>
                 </div>
                 <div class="input-row">
                     <label for="password" class="input-label">PASSWORD</label>
                     <input type="password" id="password" name="password" required>
+                    <p class="error-message">Please enter a password.</p>
                 </div>
                 <div class="input-row">
                     <label for="password-confirm" class="input-label">CONFIRM PASSWORD</label>
                     <input type="password" id="password-confirm" name="password-confirm" required>
+                    <p class="error-message">Please enter a password confirmation.</p>
                 </div>
-                <button class="btn">Create account</button>
+                <button type="submit" class="btn">Create account</button>
             </form>
             <p>Already have an account? <a href=""> Log in</a></p>
         </main>

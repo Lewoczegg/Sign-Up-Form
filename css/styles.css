@@ -94,6 +94,20 @@ input[type="password"]:focus {
     color: #4b4e54;
 }
 
+.input-row.invalid input {
+    border-color: #f00;
+}
+
+.input-row.invalid label {
+    color: #f00;
+}
+
+.error-message {
+    display: none;
+    color: #f00;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
 
 .btn {
     background-color: #dde8ed;
