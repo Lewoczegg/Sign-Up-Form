@@ -91,4 +91,23 @@ input[type="password"]:focus {
 .input-row.focused .input-label {
     top: -12px;
     font-size: 0.7rem;
+    color: #4b4e54;
+}
+
+
+.btn {
+    background-color: #dde8ed;
+    border: 2px solid #0d74a8;
+    padding: 10px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    outline: 0;
+}
+
+.btn:hover {
+    background-color: #0d74a8;
+    color: white;
+    transform: scale(1.1);
+    transition: all 0.3s;
 }
