@@ -111,3 +111,9 @@ input[type="password"]:focus {
     transform: scale(1.1);
     transition: all 0.3s;
 }
+
+a {
+    text-decoration: none;
+    color: #0d74a8;
+    font-weight: 700;
+}
