@@ -44,11 +44,19 @@
                     <label for="password" class="input-label">PASSWORD</label>
                     <input type="password" id="password" name="password" required>
                     <p class="error-message">Please enter a password.</p>
+                    <span class="showBtn btnPassword">SHOW</span>
+                    <div class="indicator">
+                        <span class="weak"></span>
+                        <span class="moderate"></span>
+                        <span class="strong"></span>
+                    </div>
+                    <div class="passwordStrengthText"></div>
                 </div>
                 <div class="input-row">
                     <label for="password-confirm" class="input-label">CONFIRM PASSWORD</label>
                     <input type="password" id="password-confirm" name="password-confirm" required>
                     <p class="error-message">Please enter a password confirmation.</p>
+                    <span class="showBtn btnPasswordConirm">SHOW</span>
                 </div>
                 <button type="submit" class="btn">Create account</button>
             </form>

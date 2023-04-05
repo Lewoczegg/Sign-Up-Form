@@ -3,6 +3,13 @@ const inputRows = document.querySelectorAll('.input-row');
 const btn = document.querySelector('.btn');
 const passwordInput = document.getElementById('password');
 const confirmPasswordInput = document.getElementById('password-confirm');
+const indicator = document.querySelector('.indicator');
+const weak = document.querySelector('.weak');
+const moderate = document.querySelector('.moderate');
+const strong = document.querySelector('.strong');
+const passwordStrengthText = document.querySelector('.passwordStrengthText');
+const btnPassword = document.querySelector('.btnPassword');
+const btnPasswordConirm = document.querySelector('.btnPasswordConirm');
 
 btn.addEventListener('click', event => {
     event.preventDefault();
@@ -57,7 +64,112 @@ inputRows.forEach(inputRow => {
 
     input.addEventListener('blur', () => {
         if (!input.value) {
-            inputRow.classList.remove("focused");
-          }
+            inputRow.classList.remove('focused');
+        }
     });
 });
+
+
+function checkPasswordStrength() {
+    if (passwordInput.value != '') {
+        indicator.style.display = 'block';
+        indicator.style.display = 'flex';
+    
+        if(calculatePasswordStrength(passwordInput.value) === 'Weak') {
+            weak.classList.add('active');
+            passwordStrengthText.style.display = 'block';
+            passwordStrengthText.textContent = 'Your password is too week';
+            passwordStrengthText.classList.add('weak');
+        }   else {
+            weak.classList.remove('active');
+            passwordStrengthText.classList.remove('weak');
+        }
+
+        if(calculatePasswordStrength(passwordInput.value) === 'Moderate') {
+            weak.classList.add('active');
+            moderate.classList.add('active');
+            passwordStrengthText.textContent = 'Your password is moderate';
+            passwordStrengthText.classList.add('moderate');
+        } else {
+            moderate.classList.remove('active');
+            passwordStrengthText.classList.remove('moderate');
+        }
+
+        if(calculatePasswordStrength(passwordInput.value) === 'Strong') {
+            weak.classList.add('active');
+            moderate.classList.add('active');
+            strong.classList.add('active');
+            passwordStrengthText.textContent = 'Your password is strong';
+            passwordStrengthText.classList.add('strong');
+        } else {
+            strong.classList.remove('active');
+            passwordStrengthText.classList.remove('strong');
+        }
+        
+    } else {
+      indicator.style.display = 'none';
+      passwordStrengthText.style.display = 'none';
+    }
+}
+
+function calculatePasswordStrength(password) {
+    let strength = 0;
+
+    if (password.length >= 8) {
+        strength++;
+    }
+
+    if (password.match(/[a-z]+/)) {
+        strength++;
+    }
+
+    if(password.match(/[A-Z]+/)) {
+        strength++;
+    }
+
+    if(password.match(/[0-9]+/)) {
+        strength++;
+    }
+
+    if(password.match(/[!@#$%^&*]+/)) {
+        strength++;
+    }
+
+    if(password.length > 12) {
+        strength++;
+    }
+
+    if(strength <= 2) {
+        return 'Weak';
+    } else if(strength <= 4) {
+        return 'Moderate';
+    } else {
+        return 'Strong';
+    }
+}
+
+passwordInput.addEventListener('keydown', checkPasswordStrength);
+
+btnPassword.onclick = function(){
+    if(passwordInput.type == 'password') {
+        passwordInput.type = 'text';
+        btnPassword.textContent = 'HIDE';
+        btnPassword.style.color = '#23ad5c';
+    } else {
+        passwordInput.type = 'password';
+        btnPassword.textContent = 'SHOW';
+        btnPassword.style.color = '#000';
+    }
+}
+
+btnPasswordConirm.onclick = function(){
+    if(confirmPasswordInput.type == 'password') {
+        confirmPasswordInput.type = 'text';
+        btnPasswordConirm.textContent = 'HIDE';
+        btnPasswordConirm.style.color = '#23ad5c';
+    } else {
+        confirmPasswordInput.type = 'password';
+        btnPasswordConirm.textContent = 'SHOW';
+        btnPasswordConirm.style.color = '#000';
+    }
+}
