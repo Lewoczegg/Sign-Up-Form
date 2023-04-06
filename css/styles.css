@@ -11,7 +11,7 @@ body {
 }
 
 .wrapper {
-    max-width: 1440px;
+    max-width: 1920px;
 }
 
 h1 {
@@ -204,4 +204,89 @@ form .passwordStrengthText.weak{
 }
   form .passwordStrengthText.strong{
     color: #23ad5c;
+}
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    header {
+        flex: 1;
+        display: block;
+        position: relative;
+    }
+
+    main {
+        flex: 2;
+        margin: 0 50px;
+    }
+
+    header > img {
+        height: 100vh;
+        width: 100%;
+    }
+
+    .title {
+        top: 40%;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .logo {
+        padding: 10px;
+        height: 100px;
+        margin-right: 10px;
+    }
+
+    .input-row {
+        margin-bottom: 35px;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    .input-label {
+        font-size: 1.3rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="password"] {
+        padding: 0 10px;
+        font-size: 1.3rem;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    input[type="password"]:focus {
+        outline: 0;
+        border: 2px solid #3aa7de;
+        border-radius: 5px;
+    }
+
+    .input-row.focused .input-label {
+        top: -17px;
+        font-size: 0.9rem;
+    }
+
+    .error-message {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+    
+    .btn {
+        font-size: 1.4rem;
+    }
 }
